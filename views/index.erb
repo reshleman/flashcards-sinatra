@@ -1,1 +1,6 @@
 <h1>Decks</h1>
+<ul>
+  <% @decks.each do |deck| %>
+    <li><%= deck.name %></li>
+  <% end %>
+</ul>
