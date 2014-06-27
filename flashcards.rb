@@ -37,6 +37,19 @@ get "/decks/:deck_id" do
   erb :show_deck
 end
 
+# GET edit deck form
+get "/decks/:deck_id/edit" do
+  @deck = Deck.find(params[:deck_id])
+  erb :edit_deck
+end
+
+# PUT edited deck
+put "/decks/:deck_id" do
+  @deck = Deck.find(params[:deck_id])
+  @deck.update(params[:deck])
+  redirect to("/decks/#{@deck.id}")
+end
+
 # GET new card form
 get "/decks/:deck_id/cards/new" do
   @deck = Deck.find(params[:deck_id])
