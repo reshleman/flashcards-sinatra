@@ -18,8 +18,18 @@ get "/" do
   erb :index
 end
 
+get "/decks/new" do
+  erb :new_deck
+end
+
 get "/decks/:deck_id" do
   @deck = Deck.find(params[:deck_id])
   @cards = @deck.cards
   erb :show_deck
 end
+
+post "/decks" do
+  @deck = Deck.create(params["deck"])
+  redirect to("/decks/#{@deck.id}")
+end
+
