@@ -1,0 +1,8 @@
+<div>
+  <%= @card.back %>
+</div>
+<% if @next_card.nil? %>
+  <a href="/decks/<%= @deck.id %>">Return to the deck</a>
+<% else %>
+  <a href="/decks/<%= @deck.id %>/cards/<%= @next_card.id %>/front">Next Card</a>
+<% end %>

@@ -2,6 +2,7 @@
 <div>
   <a href="/decks/<%= @deck.id %>/cards/new">Add a card</a>
   <a href="/decks/<%= @deck.id %>/edit">Edit this deck</a>
+  <a href="/decks/<%= @deck.id %>/cards/<%= @cards.first.id %>/front">Play this deck</a>
 <div>
 <br>
 <% @cards.each do |card| %>

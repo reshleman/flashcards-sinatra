@@ -33,7 +33,7 @@ end
 # GET view for a deck
 get "/decks/:deck_id" do
   @deck = Deck.find(params[:deck_id])
-  @cards = @deck.cards
+  @cards = @deck.cards.order(id: :asc)
   erb :show_deck
 end
 
@@ -48,6 +48,25 @@ put "/decks/:deck_id" do
   @deck = Deck.find(params[:deck_id])
   @deck.update(params[:deck])
   redirect to("/decks/#{@deck.id}")
+end
+
+# GET play front of card
+get "/decks/:deck_id/cards/:card_id/front" do
+  @deck = Deck.find(params[:deck_id])
+  @card = Card.find(params[:card_id])
+  erb :view_card_front
+end
+
+# GET play back of card
+get "/decks/:deck_id/cards/:card_id/back" do
+  @deck = Deck.find(params[:deck_id])
+  @card = Card.find(params[:card_id])
+
+  cards = @deck.cards.order(id: :asc)
+  card_index = cards.index(@card)
+
+  @next_card = cards[card_index + 1]
+  erb :view_card_back
 end
 
 # GET new card form
