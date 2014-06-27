@@ -33,3 +33,12 @@ post "/decks" do
   redirect to("/decks/#{@deck.id}")
 end
 
+get "/decks/:deck_id/cards/new" do
+  @deck = Deck.find(params[:deck_id])
+  erb :new_card
+end
+
+post "/decks/:deck_id/cards" do
+  @card = Card.create(params[:card])
+  redirect to("/decks/#{@card.deck_id}")
+end

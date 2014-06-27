@@ -1,4 +1,8 @@
 <h1><%= @deck.name %></h1>
+<div>
+  <a href="/decks/<%= @deck.id %>/cards/new">Add a card</a>
+<div>
+<br>
 <% @cards.each do |card| %>
   <div>
     <div>

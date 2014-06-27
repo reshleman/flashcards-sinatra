@@ -1,0 +1,13 @@
+<h1>Add a Card</h1>
+<form action="/decks/<%= @deck.id %>/cards" method="POST">
+  <input type="hidden" name="card[deck_id]" value="<%= @deck.id %>">
+  <div>
+    <label>Front: </label>
+    <input type="text" name="card[front]">
+  </div>
+  <div>
+    <label>Back: </label>
+    <input type="text" name="card[back]">
+  </div>
+  <input type="submit" value="Create Card">
+</form>
