@@ -1,0 +1,12 @@
+<h1><%= @deck.name %></h1>
+<% @cards.each do |card| %>
+  <div>
+    <div>
+      <%= card.front %>
+    </div>
+    <div>
+      <%= card.back %>
+    </div>
+  </div>
+  <br>
+<% end %>

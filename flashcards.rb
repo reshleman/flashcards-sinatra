@@ -17,3 +17,9 @@ get "/" do
   @decks = Deck.order("name ASC")
   erb :index
 end
+
+get "/decks/:deck_id" do
+  @deck = Deck.find(params[:deck_id])
+  @cards = @deck.cards
+  erb :show_deck
+end
